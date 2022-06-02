@@ -3,11 +3,14 @@ package main
 import (
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	router := gin.Default()
+	router.Use(cors.Default())
+
 	coffeeState := "off"
 
 	router.GET("/", func(c *gin.Context) {
